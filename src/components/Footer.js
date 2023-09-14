@@ -23,37 +23,37 @@ class Footer extends Component {
         <div>
           <p>03:00</p>
           <img src={cloudy} alt="" />
-          <p>8C</p>
+          <p>8°C</p>
         </div>
         <div>
           <p>06:00</p>
           <img src={drizzle} alt="" />
-          <p>8C</p>
+          <p>8°C</p>
         </div>
         <div>
           <p>09:00</p>
           <img src={fog} alt="" />
-          <p>8C</p>
+          <p>8°C</p>
         </div>
         <div>
           <p>12:00</p>
           <img src={rain} alt="" />
-          <p>8C</p>
+          <p>8°C</p>
         </div>
         <div>
           <p>15:00</p>
           <img src={snow} alt="" />
-          <p>8C</p>
+          <p>8°C</p>
         </div>
         <div>
           <p>18:00</p>
           <img src={storm} alt="" />
-          <p>8C</p>
+          <p>8°C</p>
         </div>
         <div>
           <p>21:00</p>
           <img src={cloudy} alt="" />
-          <p>8C</p>
+          <p>8°C</p>
         </div>
       </footer>
     );

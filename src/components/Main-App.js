@@ -23,10 +23,10 @@ class Body extends Component {
         <img className="img-app-main" src={clear} alt="clear" />
         <p className="overcast">overcast clouds</p>
         <p className="temp1">
-          Temperature <span> 10 to 11C </span>
+          Temperature&nbsp;&nbsp;<span>&nbsp;10° to 11°C </span>
         </p>
         <p className="humidity">
-          Humidity <span>78%</span> Pressure <span>1008.48</span>
+          Humidity&nbsp;&nbsp;&nbsp;<span>78%&nbsp;&nbsp;&nbsp;</span> Pressure&nbsp;&nbsp;&nbsp;<span> 1008.48</span>
         </p>
       </div>
     );
