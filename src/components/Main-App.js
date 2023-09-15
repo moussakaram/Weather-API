@@ -29,12 +29,50 @@ const Body = (props) => {
   const MaxTemp = props.Data.list[0].main.temp_max;
   const Humidity = props.Data.list[0].main.humidity;
   const Pressure = props.Data.list[0].main.pressure;
+  const Description = props.Data.list[0].weather[0].description;
+
+  let imageSource;
+  let tempInfo;
+  if (Description === "clear sky") {
+    imageSource = clear;
+    tempInfo = "clear sky";
+  } else if (Description === "snow") {
+    imageSource = snow;
+    tempInfo = "snow";
+  } else if (Description === "storm") {
+    imageSource = storm;
+    tempInfo = "storm";
+  } else if (Description === "light rain") {
+    imageSource = rain;
+    tempInfo = "light rain";
+  } else if (Description === "broken clouds") {
+    imageSource = mostlycloudy;
+    tempInfo = "broken clouds";
+  } else if (Description === "moderate rain") {
+    imageSource = rain;
+    tempInfo = "moderate rain";
+  } else if (Description === "few clouds") {
+    imageSource = partlycloudy;
+    tempInfo = "few clouds";
+  } else if (Description === "fog") {
+    imageSource = fog;
+    tempInfo = "fog";
+  } else if (Description === "drizzle") {
+    imageSource = drizzle;
+    tempInfo = "drizzle";
+  } else if (Description === "cloudy") {
+    imageSource = cloudy;
+    tempInfo = "cloudy";
+  } else {
+    imageSource = unknown;
+    tempInfo = "unknown";
+  }
 
   /* render() {*/
   return (
     <div className="content-app">
-      <img className="img-app-main" src={clear} alt="clear" />
-      <p className="overcast">overcast clouds</p>
+      <img className="img-app-main" src={imageSource} alt="" />
+      <p className="temp-info">{tempInfo}</p>
       <p className="temp1">
         Temperature&nbsp;&nbsp;
         <span>
