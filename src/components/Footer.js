@@ -24,85 +24,67 @@ const Footer = (props) => {
     return (x - 273.15).toFixed(2);
   };
 
+  const temp1 = props.Data.list[0].main.temp;
   const MinTemp = props.Data.list[0].main.temp_min;
   const MaxTemp = props.Data.list[0].main.temp_max;
   const Humidity = props.Data.list[0].main.humidity;
   const Pressure = props.Data.list[0].main.pressure;
-  const Description = props.Data.list[0].weather.description;
+  const main = props.Data.list[0].weather[0].main;
 
-  let imageSource;
   let tempInfo;
-  if (Description === "clear sky") {
-    imageSource = clear;
-    tempInfo = "clear sky";
-  } else if (Description === "snow") {
-    imageSource = snow;
-    tempInfo = "snow";
-  } else if (Description === "storm") {
-    imageSource = storm;
-    tempInfo = "storm";
-  } else if (Description === "light rain") {
-    imageSource = rain;
-    tempInfo = "light rain";
-  } else if (Description === "broken clouds") {
-    imageSource = mostlycloudy;
-    tempInfo = "broken clouds";
-  } else if (Description === "moderate rain") {
-    imageSource = rain;
-    tempInfo = "moderate rain";
-  } else if (Description === "few clouds") {
-    imageSource = partlycloudy;
-    tempInfo = "few clouds";
-  } else if (Description === "fog") {
-    imageSource = fog;
-    tempInfo = "fog";
-  } else if (Description === "drizzle") {
-    imageSource = drizzle;
-    tempInfo = "drizzle";
-  } else if (Description === "cloudy") {
-    imageSource = cloudy;
-    tempInfo = "cloudy";
-  } else {
-    imageSource = unknown;
-    tempInfo = "unknown";
-  }
 
+  function checkImage(image) {
+    switch (image) {
+      case "Clear":
+        return clear;
+        break;
+      case "Rain":
+        return rain;
+        break;
+      case "Clouds":
+        return cloudy;
+        break;
+      case "Unknown":
+        return unknown;
+        break;
+    }
+  }
   return (
     <footer>
       <div>
         <p>03:00</p>
-        <img src={imageSource} alt="" />
-        <p>{tempInfo}°C</p>
+        <img src={checkImage(props.Data.list[5].weather[0].main)} alt="" />
+        <p>{convert(props.Data.list[5].main.temp)}°C</p>
       </div>
       <div>
         <p>06:00</p>
-        <img src={imageSource} alt="" />
-        <p>{tempInfo}°C</p>
+        <img src={checkImage(props.Data.list[6].weather[0].main)} alt="" />
+        <p>{convert(props.Data.list[6].main.temp)}°C</p>
       </div>
       <div>
         <p>09:00</p>
-        <img src={imageSource} alt="" />
-        <p>{tempInfo}°C</p>
+        <img src={checkImage(props.Data.list[7].weather[0].main)} alt="" />
+        <p>{convert(props.Data.list[7].main.temp)}°C</p>
       </div>
       <div>
         <p>12:00</p>
-        <img src={imageSource} alt="" />
-        <p>{tempInfo}°C</p>
+        <img src={checkImage(props.Data.list[8].weather[0].main)} alt="" />
+        <p>{convert(props.Data.list[8].main.temp)}°C</p>
       </div>
       <div>
         <p>15:00</p>
-        <img src={imageSource} alt="" />
-        <p>{tempInfo}°C</p>
+        <img src={checkImage(props.Data.list[9].weather[0].main)} alt="" />
+        <p>{convert(props.Data.list[9].main.temp)}°C</p>
       </div>
       <div>
         <p>18:00</p>
-        <img src={imageSource} alt="" />
-        <p>{tempInfo}°C</p>
+        <img src={checkImage(props.Data.list[10].weather[0].main)} alt="" />
+        <p>{convert(props.Data.list[10].main.temp)}°C</p>
       </div>
       <div>
         <p>21:00</p>
-        <img src={imageSource} alt="" />
-        <p>{tempInfo}°C</p>
+        <img src={checkImage(props.Data.list[11].weather[0].main)} alt="" />
+        <p>{convert(props.Data.list[10].main.temp)}°C</p>
       </div>
     </footer>
   );
