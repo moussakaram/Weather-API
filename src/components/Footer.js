@@ -9,16 +9,7 @@ import rain from "../img/weather-icons/rain.svg";
 import snow from "../img/weather-icons/snow.svg";
 import storm from "../img/weather-icons/storm.svg";
 import unknown from "../img/weather-icons/unknown.svg";
-/*
-class Footer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: "",
-    }
-  }
-  render() {
-*/
+
 const Footer = (props) => {
   const convert = (x) => {
     return (x - 273.15).toFixed(2);
@@ -30,8 +21,6 @@ const Footer = (props) => {
   const Humidity = props.Data.list[0].main.humidity;
   const Pressure = props.Data.list[0].main.pressure;
   const main = props.Data.list[0].weather[0].main;
-
-  let tempInfo;
 
   function checkImage(image) {
     switch (image) {
@@ -48,6 +37,30 @@ const Footer = (props) => {
         return unknown;
         break;
     }
+    /* for step 6
+    function getWeatherIcon(id) {
+      switch (true) {
+        case id < 300:
+          return storm;
+        case id >= 300 && id < 500:
+          return drizzle;
+        case id >= 500 && id < 600:
+          return rain;
+        case id >= 600 && id < 700:
+          return snow;
+        case id >= 700 && id < 800:
+          return fog;
+        case id === 800:
+          return clear;
+        case id === 801:
+          return partlycloudy;
+        case id > 801 && id <= 805:
+          return mostlycloudy;
+        default:
+          return unknown;
+      }
+    }
+*/
   }
   return (
     <footer>
@@ -89,5 +102,5 @@ const Footer = (props) => {
     </footer>
   );
 };
-/* }*/
+
 export default Footer;

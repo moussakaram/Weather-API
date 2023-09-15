@@ -1,5 +1,5 @@
-// try 01
 import React, { Component } from "react";
+import Search from "./Search";
 
 class Header extends Component {
   constructor(props) {
@@ -12,7 +12,7 @@ class Header extends Component {
     return (
       <header className="header-app">
         <input className="app-input" placeholder="Type in a city name" />
-        <button className="app-button">FIND WEATHER </button>
+        <button className="app-button" onClick={fetch}>FIND WEATHER </button>
       </header>
     );
   }

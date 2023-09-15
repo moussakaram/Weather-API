@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component, useEffect, useState } from "react";
 import Search from "./components/Search";
 
 import SayHi, { SayHello } from "./components/WeatherItem";
@@ -10,40 +10,30 @@ import Body from "./components/Main-App";
 import Footer from "./components/Footer";
 
 import FakeWeather from "./data/FakeWeather.json";
+import axios from "axios";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      wdata: "",
-      name: "",
-      tempMax: "",
-      tempMin: "",
-      description: "",
-      pressure: "",
-      humidity: "",
-    };
-  }
+const App = () => {
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(
+        "https://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=b2525d8f8c6994732b06fc6637c4087a"
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-  // FakeWeather =async()=>{
-  // const inputWeather =async()=>{
-  // const element =document.getElementsByClassName("app-input");
-  // if (element[0]===""){
-  // return 0;
-  // }
-  // }
-  // let response = await fetch("FakeWeather");
-  // let data = await response.json();
-
-  render() {
-    return (
-      <body className="app">
-        <Header />
-        <Body Data={FakeWeather} />
-        <Footer Data={FakeWeather} />
-      </body>
-    );
-  }
-}
+  useEffect(() => {
+    fetchData();
+  }, []);
+  return (
+    <body className="app">
+      <Header />
+      <Body Data={FakeWeather} />
+      <Footer Data={FakeWeather} />
+    </body>
+  );
+};
 
 export default App;

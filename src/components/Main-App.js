@@ -11,15 +11,6 @@ import storm from "../img/weather-icons/storm.svg";
 import unknown from "../img/weather-icons/unknown.svg";
 import FakeWeather from "../data/FakeWeather.json";
 
-/* class Body extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: "",
-    };
-  }
-  */
-
 const Body = (props) => {
   const convert = (x) => {
     return (x - 273.15).toFixed(2);
@@ -49,7 +40,6 @@ const Body = (props) => {
         break;
     }
   }
-  /* render() {*/
   return (
     <div className="content-app">
       <img
@@ -71,5 +61,4 @@ const Body = (props) => {
     </div>
   );
 };
-/* }  */
 export default Body;
