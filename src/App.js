@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import Search from "./components/Search";
 
 import SayHi, { SayHello } from "./components/WeatherItem";
@@ -9,13 +9,19 @@ import Header from "./components/Header";
 import Body from "./components/Main-App";
 import Footer from "./components/Footer";
 
-// import FakeWeather from "./fake weather /FakeWeather.json";
+import FakeWeather from "./data/FakeWeather.json";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      wdata: "",
       name: "",
+      tempMax: "",
+      tempMin: "",
+      description: "",
+      pressure: "",
+      humidity: "",
     };
   }
 
@@ -33,10 +39,11 @@ class App extends Component {
     return (
       <body className="app">
         <Header />
-        <Body />
-        <Footer />
+        <Body Data={FakeWeather} />
+        <Footer Data={FakeWeather} />
       </body>
     );
   }
 }
+
 export default App;

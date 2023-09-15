@@ -9,27 +9,44 @@ import rain from "../img/weather-icons/rain.svg";
 import snow from "../img/weather-icons/snow.svg";
 import storm from "../img/weather-icons/storm.svg";
 import unknown from "../img/weather-icons/unknown.svg";
+import FakeWeather from "../data/FakeWeather.json";
 
-class Body extends Component {
+/* class Body extends Component {
   constructor(props) {
     super(props);
     this.state = {
       name: "",
     };
   }
-  render() {
-    return (
-      <div className="content-app">
-        <img className="img-app-main" src={clear} alt="clear" />
-        <p className="overcast">overcast clouds</p>
-        <p className="temp1">
-          Temperature&nbsp;&nbsp;<span>&nbsp;10° to 11°C </span>
-        </p>
-        <p className="humidity">
-          Humidity&nbsp;&nbsp;&nbsp;<span>78%&nbsp;&nbsp;&nbsp;</span> Pressure&nbsp;&nbsp;&nbsp;<span> 1008.48</span>
-        </p>
-      </div>
-    );
-  }
-}
+  */
+
+const Body = (props) => {
+  const convert = (x) => {
+    return (x - 273.15).toFixed(2);
+  };
+
+  const MinTemp = props.Data.list[0].main.temp_min;
+  const MaxTemp = props.Data.list[0].main.temp_max;
+  const Humidity = props.Data.list[0].main.humidity;
+  const Pressure = props.Data.list[0].main.pressure;
+
+  /* render() {*/
+  return (
+    <div className="content-app">
+      <img className="img-app-main" src={clear} alt="clear" />
+      <p className="overcast">overcast clouds</p>
+      <p className="temp1">
+        Temperature&nbsp;&nbsp;
+        <span>
+          &nbsp;{convert(MinTemp)}°C to {convert(MaxTemp)}°C{" "}
+        </span>
+      </p>
+      <p className="humidity">
+        Humidity&nbsp;&nbsp;&nbsp;<span>{Humidity}%&nbsp;&nbsp;&nbsp;</span>
+        Pressure&nbsp;&nbsp;&nbsp;<span>{Pressure}</span>
+      </p>
+    </div>
+  );
+};
+/* }  */
 export default Body;
